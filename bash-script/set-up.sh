@@ -51,6 +51,9 @@ main () {
             -sc)
                 start-container
                 ;;
+            -uc)
+                up-container
+                ;;
             -tc)
                 stop-container
                 ;;
@@ -164,6 +167,7 @@ help () {
     echo -e "\t-s   : apply changes and start threat-intelligence.service service"
     echo -e "\t-gt  : get time for timer"
     echo -e "\t-b   : build golang code"
+    echo -e "\t-uc  : up containers"
     echo -e "\t-sc  : start containers"
     echo -e "\t-tc  : stop containers"
     echo -e "\t-dc  : down containers"

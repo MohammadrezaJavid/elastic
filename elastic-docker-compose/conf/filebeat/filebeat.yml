@@ -1,0 +1,14 @@
+# ============================= Filebeat inputs ============================
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /tmp/log_threat/*.json
+# ============================ Elasticsearch Output ========================
+output.elasticsearch:
+  enabled: true
+  hosts: ["https://localhost:9300"]
+
+processors:
+  - add_docker_metadata:
+      host: "unix:///host_docker/docker.sock"

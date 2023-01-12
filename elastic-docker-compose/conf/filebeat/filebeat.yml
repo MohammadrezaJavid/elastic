@@ -7,7 +7,17 @@ filebeat.inputs:
 # ============================ Elasticsearch Output ========================
 output.elasticsearch:
   enabled: true
-  hosts: ["https://localhost:9300"]
+  hosts: ["https://elasticsearch01:9200"]
+  username: "elastic"
+  password: "elastic9999"
+
+  #ssl.certificate: "/usr/share/elasticsearch/config/certs/ca/ca.crt"
+  #ssl.key: "/usr/share/elasticsearch/config/certs/ca/ca.key"
+ 
+  #ssl:
+    #certificate_authorities: "/usr/share/elasticsearch/config/certs/ca/ca.crt"
+    #certificate: "/usr/share/elasticsearch/config/certs/filebeat/filebeat.crt"
+    #key: "/usr/share/elasticsearch/config/certs/filebeat/filebeat.key"
 
 processors:
   - add_docker_metadata:

@@ -26,7 +26,7 @@ func main() {
 	pulseIds := getPulseIds()
 	getReports(pulseIds)
 
-	// getReportAllSubscribedPulse()
+	getReportAllSubscribedPulse()
 }
 
 func getReports(pulseIds []string) {

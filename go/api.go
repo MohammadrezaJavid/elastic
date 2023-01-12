@@ -37,10 +37,6 @@ func getReports(pulseIds []string) {
 	for index, id := range pulseIds {
 		fileName := "response" + strconv.Itoa(index)
 		getReport(url+id, fileName)
-
-		if index == 2 {
-			break
-		}
 	}
 
 	fmt.Println("------------------------- finished report -------------------------")

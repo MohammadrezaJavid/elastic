@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
+	"time"
 )
 
 var API_KEY string = "3b43e7037a0e4aef1b57a5352544293c89bc0ddfa8e354fb101a640ce37ef4be"
@@ -23,6 +24,7 @@ type PulsesId struct {
 }
 
 func main() {
+
 	pulseIds := getPulseIds()
 	getReports(pulseIds)
 
@@ -30,7 +32,8 @@ func main() {
 }
 
 func getReports(pulseIds []string) {
-	fmt.Println("------------------------- start get report -------------------------")
+
+	fmt.Printf("start get report. [%s]\n", time.Now())
 
 	url := "https://otx.alienvault.com/api/v1/pulses/related?pulse_id="
 
@@ -39,7 +42,7 @@ func getReports(pulseIds []string) {
 		getReport(url+id, fileName)
 	}
 
-	fmt.Println("------------------------- finished report -------------------------")
+	fmt.Printf("finished report. [%s]\n", time.Now())
 }
 
 func getPulseIds() []string {
@@ -72,12 +75,16 @@ func getPulseIds() []string {
 		}
 	}
 
-	fmt.Println("------------------------- pulse ids get -------------------------")
+	fmt.Printf("pulse ids get. [%s]\n", time.Now())
+
 	return ids
 }
 
 func getReportAllSubscribedPulse() {
+
 	url := "https://otx.alienvault.com/api/v1/pulses/subscribed"
+
+	fmt.Printf("start get report all. [%s]\n", time.Now())
 
 	getReport(url, "all-subscribed-Pulse")
 }
@@ -109,5 +116,4 @@ func getReport(url string, name string) {
 			}
 		}
 	}
-
 }

@@ -9,6 +9,7 @@ output.elasticsearch:
   username: "elastic"
   password: "DT_FhvNgScdvN+putewU"
   ssl.certificate_authorities: ["/usr/share/filebeat/certs/ca/ca.crt"]
+  index: "mylogs"
 
 
 # filebeat.inputs:
